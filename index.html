@@ -74,7 +74,7 @@
     .viewer {
         display: none;
         width: 100%;
-        max-width: 520px;
+        max-width: 100%;
         padding: 10px;
         text-align: center;
     }
@@ -99,15 +99,23 @@
         }
     }
 
-    /* The image viewer */
-    .viewer img {
+    /* Scrollable HD image container */
+    .image-wrapper {
         width: 100%;
-        height: auto;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
         border-radius: var(--radius);
         box-shadow: var(--shadow);
-        display: block;
+        background: white;
+        padding: 6px;
     }
 
+    .image-wrapper img {
+        width: auto;
+        height: auto;
+        max-width: none;
+        display: block;
+    }
 </style>
 </head>
 
@@ -136,7 +144,10 @@
 <!-- IMAGE VIEWER -->
 <div class="viewer" id="viewer">
     <div class="back-btn" onclick="goBack()">← Back to Home</div>
-    <img id="viewerImage" src="">
+
+    <div class="image-wrapper">
+        <img id="viewerImage" src="">
+    </div>
 </div>
 
 <script>
