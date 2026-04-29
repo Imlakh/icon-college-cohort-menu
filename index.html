@@ -70,6 +70,7 @@
         }
     }
 
+    /* IMAGE VIEWER */
     .viewer {
         display: none;
         width: 100%;
@@ -98,12 +99,13 @@
         }
     }
 
-    iframe {
+    /* The image viewer */
+    .viewer img {
         width: 100%;
-        height: 80vh;
-        border: none;
+        height: auto;
         border-radius: var(--radius);
         box-shadow: var(--shadow);
+        display: block;
     }
 
 </style>
@@ -131,10 +133,10 @@
 
 </div>
 
-<!-- IMAGE VIEWER SCREEN -->
+<!-- IMAGE VIEWER -->
 <div class="viewer" id="viewer">
     <div class="back-btn" onclick="goBack()">← Back to Home</div>
-    <iframe id="frame"></iframe>
+    <img id="viewerImage" src="">
 </div>
 
 <script>
@@ -149,11 +151,11 @@
         btn.style.backgroundColor = randomColor();
     });
 
-    // Handle button click → load iframe
+    // Load image into viewer
     document.querySelectorAll('.button').forEach(btn => {
         btn.addEventListener('click', () => {
             const url = btn.getAttribute('data-url');
-            document.getElementById('frame').src = url;
+            document.getElementById('viewerImage').src = url;
             document.getElementById('home').style.display = 'none';
             document.getElementById('viewer').style.display = 'block';
         });
@@ -163,7 +165,7 @@
     function goBack() {
         document.getElementById('viewer').style.display = 'none';
         document.getElementById('home').style.display = 'block';
-        document.getElementById('frame').src = "";
+        document.getElementById('viewerImage').src = "";
     }
 </script>
 
