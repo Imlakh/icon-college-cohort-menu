@@ -8,8 +8,8 @@
     :root {
         --radius: 14px;
         --transition: 0.25s ease;
-        --shadow: 0 4px 12px rgba(0,0,0,0.08);
-        --shadow-hover: 0 6px 18px rgba(0,0,0,0.12);
+        --shadow: 0 3px 10px rgba(0,0,0,0.08);
+        --shadow-hover: 0 6px 16px rgba(0,0,0,0.12);
     }
 
     body {
@@ -26,36 +26,39 @@
         width: 100%;
         background: #003f7f;
         color: white;
-        padding: 22px 10px;
+        padding: 20px 10px;
         margin: 0;
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         text-align: center;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
         box-shadow: var(--shadow);
     }
 
     .container {
         width: 100%;
-        max-width: 600px;
-        padding: 20px 16px 40px;
+        max-width: 520px;
+        padding: 18px 14px 40px;
         box-sizing: border-box;
     }
 
     .button {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        padding: 18px;
-        margin: 14px 0;
+        padding: 16px;
+        margin: 12px 0;
         color: white;
         text-decoration: none;
-        font-size: 1.05rem;
+        font-size: 1rem;
         font-weight: 600;
         border-radius: var(--radius);
         box-shadow: var(--shadow);
         transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
         opacity: 0;
         transform: translateY(10px);
-        animation: fadeInUp 0.5s forwards;
+        animation: fadeInUp 0.45s forwards;
+        text-align: center;
     }
 
     /* Staggered animation */
@@ -79,20 +82,34 @@
         }
     }
 
+    /* Minimal hover animation */
     .button:hover {
-        transform: translateY(-3px);
+        transform: translateY(-4px) scale(1.02);
         box-shadow: var(--shadow-hover);
     }
 
-    /* Desktop spacing */
+    /* Extra mobile optimization */
+    @media (max-width: 420px) {
+        h1 {
+            font-size: 1.25rem;
+            padding: 16px;
+        }
+        .button {
+            font-size: 0.95rem;
+            padding: 14px;
+            margin: 10px 0;
+        }
+    }
+
+    /* Desktop refinement */
     @media (min-width: 768px) {
         h1 {
-            font-size: 2rem;
-            padding: 28px;
+            font-size: 1.8rem;
+            padding: 26px;
         }
         .button {
             font-size: 1.15rem;
-            padding: 20px;
+            padding: 18px;
         }
     }
 </style>
