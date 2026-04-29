@@ -5,37 +5,95 @@
 <title>ICON College Cohort Schedules</title>
 
 <style>
+    :root {
+        --radius: 14px;
+        --transition: 0.25s ease;
+        --shadow: 0 4px 12px rgba(0,0,0,0.08);
+        --shadow-hover: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
     body {
-        font-family: Arial, sans-serif;
-        background: #f4f4f4;
+        font-family: system-ui, Arial, sans-serif;
+        background: #fafafa;
         margin: 0;
         padding: 0;
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     h1 {
-        background: #0057A3;
+        width: 100%;
+        background: #003f7f;
         color: white;
-        padding: 20px;
+        padding: 22px 10px;
         margin: 0;
-        font-size: 24px;
+        font-size: 1.6rem;
+        text-align: center;
+        letter-spacing: 0.5px;
+        box-shadow: var(--shadow);
+    }
+
+    .container {
+        width: 100%;
+        max-width: 600px;
+        padding: 20px 16px 40px;
+        box-sizing: border-box;
     }
 
     .button {
         display: block;
-        width: 85%;
-        margin: 12px auto;
+        width: 100%;
         padding: 18px;
-        background: #0057A3;
+        margin: 14px 0;
         color: white;
         text-decoration: none;
-        font-size: 18px;
-        border-radius: 10px;
-        font-weight: bold;
+        font-size: 1.05rem;
+        font-weight: 600;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeInUp 0.5s forwards;
+    }
+
+    /* Staggered animation */
+    .button:nth-child(1) { animation-delay: 0.05s; }
+    .button:nth-child(2) { animation-delay: 0.10s; }
+    .button:nth-child(3) { animation-delay: 0.15s; }
+    .button:nth-child(4) { animation-delay: 0.20s; }
+    .button:nth-child(5) { animation-delay: 0.25s; }
+    .button:nth-child(6) { animation-delay: 0.30s; }
+    .button:nth-child(7) { animation-delay: 0.35s; }
+    .button:nth-child(8) { animation-delay: 0.40s; }
+    .button:nth-child(9) { animation-delay: 0.45s; }
+    .button:nth-child(10) { animation-delay: 0.50s; }
+    .button:nth-child(11) { animation-delay: 0.55s; }
+    .button:nth-child(12) { animation-delay: 0.60s; }
+
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .button:hover {
-        background: #004A8C;
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+    }
+
+    /* Desktop spacing */
+    @media (min-width: 768px) {
+        h1 {
+            font-size: 2rem;
+            padding: 28px;
+        }
+        .button {
+            font-size: 1.15rem;
+            padding: 20px;
+        }
     }
 </style>
 </head>
@@ -44,18 +102,35 @@
 
 <h1>ICON College Cohort Schedules</h1>
 
-<a class="button" href="https://i.ibb.co/fYW30zZ1/Slide1.jpg">April 2026 Cohort</a>
-<a class="button" href="https://i.ibb.co/Zzs2gtht/Slide2.jpg">February 2026 Cohort</a>
-<a class="button" href="https://i.ibb.co/4V8Lx0d/Slide3.jpg">September 2025 Cohort</a>
-<a class="button" href="https://i.ibb.co/XkXkVFSC/Slide4.jpg">April 2025 Cohort</a>
-<a class="button" href="https://i.ibb.co/RGwwZ2d3/Slide5.jpg">February 2025 Cohort</a>
-<a class="button" href="https://i.ibb.co/8LNDg2Dx/Slide6.jpg">September 2024 Cohort</a>
-<a class="button" href="https://i.ibb.co/DfTVqYq6/Slide7.jpg">April 2024 Cohort</a>
-<a class="button" href="https://i.ibb.co/ZzLVmGkG/Slide8.jpg">February 2024 Cohort</a>
-<a class="button" href="https://i.ibb.co/bMxkcYjF/Slide9.jpg">September 2023 Cohort</a>
-<a class="button" href="https://i.ibb.co/nM4pzW6C/Slide10.jpg">April/June 2023 Cohort</a>
-<a class="button" href="https://i.ibb.co/Gf6j2MxG/Slide11.jpg">MSc 2025/26</a>
-<a class="button" href="https://i.ibb.co/tPJFMd97/Slide12.jpg">MA 2025/26</a>
+<div class="container">
+
+    <a class="button" href="https://i.ibb.co/fYW30zZ1/Slide1.jpg">April 2026 Cohort</a>
+    <a class="button" href="https://i.ibb.co/Zzs2gtht/Slide2.jpg">February 2026 Cohort</a>
+    <a class="button" href="https://i.ibb.co/4V8Lx0d/Slide3.jpg">September 2025 Cohort</a>
+    <a class="button" href="https://i.ibb.co/XkXkVFSC/Slide4.jpg">April 2025 Cohort</a>
+    <a class="button" href="https://i.ibb.co/RGwwZ2d3/Slide5.jpg">February 2025 Cohort</a>
+    <a class="button" href="https://i.ibb.co/8LNDg2Dx/Slide6.jpg">September 2024 Cohort</a>
+    <a class="button" href="https://i.ibb.co/DfTVqYq6/Slide7.jpg">April 2024 Cohort</a>
+    <a class="button" href="https://i.ibb.co/ZzLVmGkG/Slide8.jpg">February 2024 Cohort</a>
+    <a class="button" href="https://i.ibb.co/bMxkcYjF/Slide9.jpg">September 2023 Cohort</a>
+    <a class="button" href="https://i.ibb.co/nM4pzW6C/Slide10.jpg">April/June 2023 Cohort</a>
+    <a class="button" href="https://i.ibb.co/Gf6j2MxG/Slide11.jpg">MSc 2025/26</a>
+    <a class="button" href="https://i.ibb.co/tPJFMd97/Slide12.jpg">MA 2025/26</a>
+
+</div>
+
+<script>
+    // Random pastel color generator
+    function randomColor() {
+        const hue = Math.floor(Math.random() * 360);
+        return `hsl(${hue}, 65%, 55%)`;
+    }
+
+    // Apply random colors to buttons
+    document.querySelectorAll('.button').forEach(btn => {
+        btn.style.background = randomColor();
+    });
+</script>
 
 </body>
 </html>
