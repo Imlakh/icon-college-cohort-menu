@@ -100,16 +100,22 @@
     }
 
     /* Scrollable HD image container */
-   .image-wrapper {
+.image-wrapper {
     width: 100%;
-    height: 80vh; /* viewer height */
+    height: 80vh;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     background: white;
     padding: 6px;
+
+    /* Center the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 
 /* HD image with minimum 50% size */
 .image-wrapper img {
@@ -117,8 +123,12 @@
     height: auto;
     max-width: none;
     max-height: none;
+
+    /* Minimum size requirement */
     min-width: 50%;
     min-height: 50%;
+
+    /* Prevent weird spacing */
     display: block;
 }
 
