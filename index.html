@@ -12,25 +12,21 @@
         --shadow-hover: 0 8px 20px rgba(0,0,0,0.18);
     }
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
         background: #f5f5f7;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        min-height: 100vh;
     }
 
     h1 {
         width: 100%;
         background: #003f7f;
-        color: #ffffff;
+        color: white;
         padding: 16px 10px;
         text-align: center;
         font-size: 1.25rem;
@@ -56,45 +52,16 @@
         min-height: 52px;
         padding: 14px 10px;
         margin: 9px 0;
-        color: #ffffff;
+        color: white;
         text-decoration: none;
         font-size: 0.98rem;
         font-weight: 600;
         border-radius: var(--radius);
         box-shadow: var(--shadow);
-        transition:
-            transform var(--transition),
-            box-shadow var(--transition),
-            filter var(--transition),
-            opacity 0.3s ease-out;
-        opacity: 0;
-        transform: translateY(10px);
-        word-wrap: break-word;
-        line-height: 1.25;
+        transition: transform var(--transition), box-shadow var(--transition), filter var(--transition);
+        cursor: pointer;
     }
 
-    /* Staggered fade-in (buttons are children of .container) */
-    .container .button:nth-child(1)  { animation: fadeInUp 0.45s forwards 0.05s; }
-    .container .button:nth-child(2)  { animation: fadeInUp 0.45s forwards 0.10s; }
-    .container .button:nth-child(3)  { animation: fadeInUp 0.45s forwards 0.15s; }
-    .container .button:nth-child(4)  { animation: fadeInUp 0.45s forwards 0.20s; }
-    .container .button:nth-child(5)  { animation: fadeInUp 0.45s forwards 0.25s; }
-    .container .button:nth-child(6)  { animation: fadeInUp 0.45s forwards 0.30s; }
-    .container .button:nth-child(7)  { animation: fadeInUp 0.45s forwards 0.35s; }
-    .container .button:nth-child(8)  { animation: fadeInUp 0.45s forwards 0.40s; }
-    .container .button:nth-child(9)  { animation: fadeInUp 0.45s forwards 0.45s; }
-    .container .button:nth-child(10) { animation: fadeInUp 0.45s forwards 0.50s; }
-    .container .button:nth-child(11) { animation: fadeInUp 0.45s forwards 0.55s; }
-    .container .button:nth-child(12) { animation: fadeInUp 0.45s forwards 0.60s; }
-
-    @keyframes fadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    /* Hover animation (desktop / devices with hover) */
     @media (hover: hover) and (pointer: fine) {
         .button:hover {
             transform: translateY(-4px) scale(1.02);
@@ -103,44 +70,42 @@
         }
     }
 
-    /* Tap feedback for touch devices */
-    .button:active {
-        transform: scale(0.98);
-        filter: brightness(0.96);
+    .viewer {
+        display: none;
+        width: 100%;
+        max-width: 520px;
+        padding: 10px;
+        text-align: center;
     }
 
-    /* Extra small devices */
-    @media (max-width: 400px) {
-        h1 {
-            font-size: 1.1rem;
-            padding: 12px 8px;
-        }
-        .container {
-            padding: 10px 8px 24px;
-        }
-        .button {
-            font-size: 0.9rem;
-            padding: 12px 8px;
-            margin: 8px 0;
-            min-height: 48px;
+    .back-btn {
+        background: #003f7f;
+        color: white;
+        padding: 12px 18px;
+        border-radius: var(--radius);
+        font-weight: 600;
+        display: inline-block;
+        margin-bottom: 12px;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        .back-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
         }
     }
 
-    /* Larger screens refinement */
-    @media (min-width: 768px) {
-        h1 {
-            font-size: 1.6rem;
-            padding: 22px;
-        }
-        .container {
-            padding: 20px 16px 40px;
-        }
-        .button {
-            font-size: 1.05rem;
-            padding: 16px 12px;
-            margin: 10px 0;
-        }
+    iframe {
+        width: 100%;
+        height: 80vh;
+        border: none;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
     }
+
 </style>
 </head>
 
@@ -148,31 +113,58 @@
 
 <h1>ICON College Cohort Schedules</h1>
 
-<div class="container">
-    <a class="button" href="https://i.ibb.co/fYW30zZ1/Slide1.jpg">April 2026 Cohort</a>
-    <a class="button" href="https://i.ibb.co/Zzs2gtht/Slide2.jpg">February 2026 Cohort</a>
-    <a class="button" href="https://i.ibb.co/4V8Lx0d/Slide3.jpg">September 2025 Cohort</a>
-    <a class="button" href="https://i.ibb.co/XkXkVFSC/Slide4.jpg">April 2025 Cohort</a>
-    <a class="button" href="https://i.ibb.co/RGwwZ2d3/Slide5.jpg">February 2025 Cohort</a>
-    <a class="button" href="https://i.ibb.co/8LNDg2Dx/Slide6.jpg">September 2024 Cohort</a>
-    <a class="button" href="https://i.ibb.co/DfTVqYq6/Slide7.jpg">April 2024 Cohort</a>
-    <a class="button" href="https://i.ibb.co/ZzLVmGkG/Slide8.jpg">February 2024 Cohort</a>
-    <a class="button" href="https://i.ibb.co/bMxkcYjF/Slide9.jpg">September 2023 Cohort</a>
-    <a class="button" href="https://i.ibb.co/nM4pzW6C/Slide10.jpg">April/June 2023 Cohort</a>
-    <a class="button" href="https://i.ibb.co/Gf6j2MxG/Slide11.jpg">MSc 2025/26</a>
-    <a class="button" href="https://i.ibb.co/tPJFMd97/Slide12.jpg">MA 2025/26</a>
+<!-- HOME SCREEN -->
+<div class="container" id="home">
+
+    <div class="button" data-url="https://i.ibb.co/fYW30zZ1/Slide1.jpg">April 2026 Cohort</div>
+    <div class="button" data-url="https://i.ibb.co/Zzs2gtht/Slide2.jpg">February 2026 Cohort</div>
+    <div class="button" data-url="https://i.ibb.co/4V8Lx0d/Slide3.jpg">September 2025 Cohort</div>
+    <div class="button" data-url="https://i.ibb.co/XkXkVFSC/Slide4.jpg">April 2025 Cohort</div>
+    <div class="button" data-url="https://i.ibb.co/RGwwZ2d3/Slide5.jpg">February 2025 Cohort</div>
+    <div class="button" data-url="https://i.ibb.co/8LNDg2Dx/Slide6.jpg">September 2024 Cohort</div>
+    <div class="button" data-url="https://i.ibb.co/DfTVqYq6/Slide7.jpg">April 2024 Cohort</div>
+    <div class="button" data-url="https://i.ibb.co/ZzLVmGkG/Slide8.jpg">February 2024 Cohort</div>
+    <div class="button" data-url="https://i.ibb.co/bMxkcYjF/Slide9.jpg">September 2023 Cohort</div>
+    <div class="button" data-url="https://i.ibb.co/nM4pzW6C/Slide10.jpg">April/June 2023 Cohort</div>
+    <div class="button" data-url="https://i.ibb.co/Gf6j2MxG/Slide11.jpg">MSc 2025/26</div>
+    <div class="button" data-url="https://i.ibb.co/tPJFMd97/Slide12.jpg">MA 2025/26</div>
+
+</div>
+
+<!-- IMAGE VIEWER SCREEN -->
+<div class="viewer" id="viewer">
+    <div class="back-btn" onclick="goBack()">← Back to Home</div>
+    <iframe id="frame"></iframe>
 </div>
 
 <script>
-    // Random pastel color generator with good contrast
+    // Random pastel color generator
     function randomColor() {
         const hue = Math.floor(Math.random() * 360);
         return `hsl(${hue}, 70%, 50%)`;
     }
 
+    // Apply random colors
     document.querySelectorAll('.button').forEach(btn => {
         btn.style.backgroundColor = randomColor();
     });
+
+    // Handle button click → load iframe
+    document.querySelectorAll('.button').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const url = btn.getAttribute('data-url');
+            document.getElementById('frame').src = url;
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('viewer').style.display = 'block';
+        });
+    });
+
+    // Back button
+    function goBack() {
+        document.getElementById('viewer').style.display = 'none';
+        document.getElementById('home').style.display = 'block';
+        document.getElementById('frame').src = "";
+    }
 </script>
 
 </body>
